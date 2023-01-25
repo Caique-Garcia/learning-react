@@ -3,6 +3,7 @@ import './Forms.css'
 const Forms = () => {
   return (
     <div>
+        <h1>Formulários</h1>
         <form>
             <div>
                 <label htmlFor="nome">
