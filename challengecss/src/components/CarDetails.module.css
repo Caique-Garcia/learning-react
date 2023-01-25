@@ -1,0 +1,17 @@
+.showCarDetails {
+    border: 1px solid gray;
+    text-align: left;    
+}
+
+h3 {
+    display: inline;
+}
+ul{
+    padding: 0;
+
+}
+li {
+    margin: 6px 0;
+    list-style: none;
+}
+
