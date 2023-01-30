@@ -2,11 +2,18 @@
 import './App.css';
 import {useState, useEffect} from 'react';
 
+//Importando custom hook
+import { useFetch } from './hooks/useFetch';
+
  //url da API
  const url = "http://localhost:3000/products";
 
 function App() {
 
+  //Custom hook
+  const { data: items } = useFetch(url);
+  
+  
   //variavel que vai receber os produtos da requisição
   const [products, setProducts] = useState([]) ;
 
@@ -14,7 +21,7 @@ function App() {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
 
- 
+ /*
   //resgatando dados por meio de chamada assincrona usando useEffect
   useEffect(() => {
 
@@ -34,6 +41,8 @@ function App() {
     fetchData();
 
   }, []);
+*/
+
 
   //adição de dados
   const handleSubmit = async (e) => {
@@ -60,14 +69,22 @@ function App() {
       body: JSON.stringify(product)
     });
 
+    //carregamento dinamico
+    const addedProducts = await res.json();
+    setProducts((prevProducts) => [...prevProducts, addedProducts]);
+
+    setName("");
+    setPrice("");
 
   }
+
+ 
 
   return (
     <div className="App">
       <h1>Lista de Produtos</h1>
       <ul>
-        {products.map((product) => (
+        {items && items.map((product) => (
           <li key={product.id} > {product.name} - R$ {product.price} </li>
         ))}
       </ul>
