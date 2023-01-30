@@ -29,6 +29,11 @@
       "name": "Garrafa",
       "price": "7,50",
       "id": 6
+    },
+    {
+      "name": "Pente",
+      "price": "3",
+      "id": 7
     }
   ]
 }

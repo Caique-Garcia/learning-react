@@ -11,7 +11,7 @@ import { useFetch } from './hooks/useFetch';
 function App() {
 
   //Custom hook
-  const { data: items } = useFetch(url);
+  const { data: items, httpConfig } = useFetch(url);
   
   
   //variavel que vai receber os produtos da requisição
@@ -57,10 +57,9 @@ function App() {
     const product = {
       name,
       price
-    }
-
-    console.log(product);
-
+    };
+    
+  /*
     const res = await fetch(url, {
       method:"POST",
       headers: {
@@ -72,7 +71,10 @@ function App() {
     //carregamento dinamico
     const addedProducts = await res.json();
     setProducts((prevProducts) => [...prevProducts, addedProducts]);
-
+  */
+    //refatorando POST
+    httpConfig(product, "POST");
+    
     setName("");
     setPrice("");
 
