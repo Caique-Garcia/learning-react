@@ -1,13 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-avancando/node_modules
-requicaohttp/node_modules
-challengecss/node_modules
-desafio-avancando/node_modules
-forms/node_modules
-fundamentos/node_modules
-introducao/node_modules
+/node_modules
 /.pnp
 .pnp.js
 
