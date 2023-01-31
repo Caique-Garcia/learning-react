@@ -16,29 +16,9 @@
       "price": 29.9
     },
     {
-      "name": "Celular",
-      "price": "200,00",
-      "id": 4
-    },
-    {
-      "name": "Copo",
-      "price": "5",
-      "id": 5
-    },
-    {
-      "name": "Garrafa",
-      "price": "7,50",
-      "id": 6
-    },
-    {
       "name": "Pente",
       "price": "3",
       "id": 7
-    },
-    {
-      "name": "Pirulito",
-      "price": "3,50",
-      "id": 8
     }
   ]
 }

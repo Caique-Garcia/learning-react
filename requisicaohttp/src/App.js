@@ -11,7 +11,7 @@ import { useFetch } from './hooks/useFetch';
 function App() {
 
   //Custom hook
-  const { data: items, httpConfig } = useFetch(url);
+  const { data: items, httpConfig, loading, error } = useFetch(url);
   
   
   //variavel que vai receber os produtos da requisição
@@ -80,17 +80,29 @@ function App() {
 
   }
 
+  //Removendo dados
+  const handleDelete = async (id) => {
+    
+    
+    const urlDelete = `${url}/${id}`;
+    console.log(id, urlDelete);
+    httpConfig(urlDelete, "DELETE");      
+
+  }
+
  
 
   return (
     <div className="App">
       <h1>Lista de Produtos</h1>
-      <ul>
+      {/*Loading */}
+      {loading && <p>Carregando dados... </p> }
+      {error && <p> {error} </p> }
+      {!error && <ul>
         {items && items.map((product) => (
-          <li key={product.id} > {product.name} - R$ {product.price} </li>
+          <li key={product.id} > {product.name} - R$ {product.price} <button onClick={() => handleDelete(product.id)} >X</button></li>
         ))}
-      </ul>
-
+      </ul>}
       <div className="add-product">
         <form onSubmit={handleSubmit}>
           <label>
@@ -101,7 +113,9 @@ function App() {
             Preço:
             <input type="text" value={price} name="price" onChange={(e) => setPrice(e.target.value)}/>
           </label>
-          <input type="submit" value="Salvar"/>
+          {/*State de loading no post */}
+          {loading && <input type="submit" value="Aguarde..." disabled />}
+          {!loading && <input type="submit" value="Salvar"/>}
         </form>
       </div>
     </div>

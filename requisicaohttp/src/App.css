@@ -57,3 +57,6 @@ form input {
   flex-direction: column;
   margin-bottom: 15px;
 }
+button {
+  padding: 3px;
+}
